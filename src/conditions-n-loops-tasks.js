@@ -70,10 +70,18 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  const qx = queen.x;
+  const qy = queen.y;
+  const kx = king.x;
+  const ky = king.y;
+  const dx = Math.abs(qx - kx);
+  const dy = Math.abs(qy - ky);
+  if (dx === 0 && dy === 0) return false;
+  if (dx === dy) return true;
+  if (qx === kx || qy === ky) return true;
+  return false;
 }
-
 /**
  * Determines whether a triangle is isosceles based on its side lengths.
  * In this task, the use of methods of the String and Array classes is not allowed.
@@ -92,8 +100,12 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (!Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(c))
+    return false;
+  if (a <= 0 || b <= 0 || c <= 0) return false;
+  if (!(a + b > c && a + c > b && c + b > a)) return false;
+  return a === b || a === c || b === c;
 }
 
 /**
