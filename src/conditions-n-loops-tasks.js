@@ -315,9 +315,11 @@ function isContainNumber(num, digit) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
-  throw new Error('Not implemented');
-}
+// function getBalanceIndex(arr) {
+//   for (let i = 0; i < arr.length; i += 1) {
+
+//   }
+// }
 
 /**
  * Generates a spiral matrix of a given size, filled with numbers in ascending order starting from one.
@@ -377,8 +379,19 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  const a = arr;
+  const n = a.length;
+  for (let i = 0; i < n - 1; i += 1) {
+    for (let j = 0; j < n - i - 1; j += 1) {
+      if (a[j] > a[j + 1]) {
+        const t = a[j];
+        a[j] = a[j + 1];
+        a[j + 1] = t;
+      }
+    }
+  }
+  return a;
 }
 
 /**
@@ -434,7 +447,7 @@ module.exports = {
   isPalindrome,
   getIndexOf,
   isContainNumber,
-  getBalanceIndex,
+  // getBalanceIndex,
   getSpiralMatrix,
   rotateMatrix,
   sortByAsc,
